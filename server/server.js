@@ -13,7 +13,7 @@ let calculator = [];
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-app.post("/calculator",(req, res) => {
+app.post("/addToCalculator",(req, res) => {
     console.log("Body for calculator:", req.body); // testing (not needed)
 
     let addequation = req.body 
@@ -22,12 +22,16 @@ app.post("/calculator",(req, res) => {
 
     console.log("currentEquation:", calculator)
     res.send(calculator) 
-    res.sendStatus(201)
+    // res.sendStatus(201)
 })
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------
 
+app.get('/calculator', (req, res) => { 
+    console.log("Arrived at /calculator", calculator) 
 
-
+    res.send(calculator)  
+}
 
 
 

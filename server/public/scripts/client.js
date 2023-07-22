@@ -31,7 +31,7 @@ let submitMath = () => {
     }
     $.ajax({
         method: "POST", 
-        url: "/calculator", 
+        url: "/addToCalculator", 
         data: partsOfProblem 
     }).then((response) => {
         console.log("POST was successful:", response) // Expect 201
