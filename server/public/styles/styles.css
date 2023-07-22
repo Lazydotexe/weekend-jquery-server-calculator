@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+  }
+  
+  /* Add spacing between elements */
+  .container > * {
+    margin-right: 10px;
+  }
+  
+  /* Remove margin from the last button to prevent extra spacing */
+  .container > *:last-child {
+    margin-right: 0;
+  }
