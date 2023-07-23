@@ -13,19 +13,32 @@ let calculator = [];
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 
+// The /addToCalculator POST route will receive the POST request from the client
+// and set req.body to the variable addEquation.
+// The addEquation.solution is set to what the solveEquation function returns
+// Then the addEquation (with the new solution key) is pushed to calculator.
+// 
+
 app.post("/addToCalculator",(req, res) => {
     console.log("Body for calculator:", req.body);
   
-    let addequation = req.body;
-    addequation.solution = performMathOperation(addequation.num1, addequation.num2, addequation.operator);
+    let addEquation = req.body;
+    addEquation.solution = solveEquation(addEquation.num1, addEquation.num2, addEquation.operator);
   
-    calculator.push(addequation);
+    calculator.push(addEquation);
   
     console.log("currentEquation:", calculator);
-    res.send(addequation);
+    res.sendStatus(201);
   });
-    
-  function performMathOperation(num1, num2, operator) {
+
+// solveEquation  takes 3 arguments; num1, num2 and operator from the req.body
+// it then runs a switch conditional that checks the operator key against different
+// case scenerios. It will check each case line by line until one evaulates to
+// true. Once a true case is found it will then return the mathematical operation
+// that matches the operator (+, -, *, /) using num1 and num2 values.
+// Ultimately the outcome is passed to the solution key in the calculator variable.
+
+  function solveEquation(num1, num2, operator) {
     switch (operator) {
       case '+':
         return parseFloat(num1) + parseFloat(num2);
@@ -42,6 +55,9 @@ app.post("/addToCalculator",(req, res) => {
   }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// The "GET" route response is the updated calculator array.
 
 app.get('/calculator', (req, res) => { 
     // const lastEquation = calculator[calculator.length - 1];
