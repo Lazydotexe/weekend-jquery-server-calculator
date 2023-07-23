@@ -14,24 +14,43 @@ let calculator = [];
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 
 app.post("/addToCalculator",(req, res) => {
-    console.log("Body for calculator:", req.body); // testing (not needed)
-
-    let addequation = req.body 
-    calculator.push(addequation)
+    console.log("Body for calculator:", req.body);
+  
+    let addequation = req.body;
+    addequation.solution = performMathOperation(addequation.num1, addequation.num2, addequation.operator);
+  
+    calculator.push(addequation);
+  
+    console.log("currentEquation:", calculator);
+    res.send(addequation);
+  });
     
-
-    console.log("currentEquation:", calculator)
-    res.send(calculator) 
-    // res.sendStatus(201)
-})
+  function performMathOperation(num1, num2, operator) {
+    switch (operator) {
+      case '+':
+        return parseFloat(num1) + parseFloat(num2);
+      case '-':
+        return parseFloat(num1) - parseFloat(num2);
+      case '*':
+        return parseFloat(num1) * parseFloat(num2);
+      case '/':
+        return parseFloat(num1) / parseFloat(num2);
+      default:
+        console.log('Something went wrong if you are seeing this.');
+        return undefined;
+    }
+  }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 
 app.get('/calculator', (req, res) => { 
-    console.log("Arrived at /calculator", calculator) 
+    // const lastEquation = calculator[calculator.length - 1];
+ 
+  res.send(calculator)
+})
 
-    res.send(calculator)  
-}
+      
+
 
 
 
