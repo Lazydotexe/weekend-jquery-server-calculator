@@ -25,8 +25,7 @@ let clearInputs = () => {  // When the #clear button is clicked the inputs will 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-let mathProblem = function () { // This saves whatever operator button the user clicks to the operator variable.
+function mathProblem () { // This saves whatever operator button the user clicks to the operator variable.
     operator = $(this).text()   
     console.log('here is the opperator', operator);
 }
