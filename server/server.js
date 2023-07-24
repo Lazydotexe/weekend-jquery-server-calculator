@@ -31,7 +31,7 @@ app.post("/addToCalculator",(req, res) => {
     res.sendStatus(201);
   });
 
-// solveEquation  takes 3 arguments; num1, num2 and operator from the req.body
+// solveEquation  takes 3 arguments; addEquation.num1, addEquation.num2 and addEquation.operator. 
 // it then runs a switch conditional that checks the operator key against different
 // case scenerios. It will check each case line by line until one evaulates to
 // true. Once a true case is found it will then return the mathematical operation
