@@ -60,7 +60,6 @@ app.post("/addToCalculator",(req, res) => {
 // The "GET" route response is the updated calculator array.
 
 app.get('/calculator', (req, res) => { 
-    // const lastEquation = calculator[calculator.length - 1];
  
   res.send(calculator)
 })
