@@ -97,6 +97,11 @@ let getSolution = () => {
 
 let render = () => {
     $('#equations').empty()
+    $('#outcome').empty()
+    if (equations.length > 0) {
+        $('#outcome').text(equations[equations.length - 1].solution);
+    }
+
 
     for (let key of equations) {
         console.log(key)
@@ -104,6 +109,8 @@ let render = () => {
             <li>
             ${key.num1} ${key.operator} ${key.num2} = ${key.solution}
             </li>
+            
         `)
     }
+    
 }
