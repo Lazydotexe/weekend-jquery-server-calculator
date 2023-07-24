@@ -26,7 +26,7 @@ let clearInputs = () => {  // When the #clear button is clicked the inputs will 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function mathProblem () { // This saves whatever operator button the user clicks to the operator variable.
-    operator = $(this).text()   
+    operator = $(this).text()   // Turns out you cant use an arrow function with a 'this' keyword.
     console.log('here is the opperator', operator);
 }
 
