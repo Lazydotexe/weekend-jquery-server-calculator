@@ -98,9 +98,9 @@ let getSolution = () => {
 let render = () => {
     $('#equations').empty()
     $('#outcome').empty()
-    if (equations.length > 0) {
+    if (equations.length > 0) {  // This if conditional will check if equations has at least one item. If it does it will append the solution to the last summited inputs.
         $('#outcome').text(equations[equations.length - 1].solution);
-    }
+    } 
 
 
     for (let key of equations) {
